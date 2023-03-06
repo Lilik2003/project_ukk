@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Laporan tanggapan</title>
+    <style>
+        * {
+            margin : 0px;
+            padding : 0px;
+        } 
+
+        body {
+            margin : 10px;
+            padding : 10px;
+        }
+
+        .text-center {
+            text-align : center;
+        }
+
+        #head {
+            margin-top : 8px;
+        }
+        hr {
+            margin-top : 8px;
+        }
+
+        table {
+            margin : 0 auto;
+            margin-top : 8px;
+            border : 1px solid #778899;
+        }
+
+        table th {
+            padding : 8px 8px;
+            border-left : 1px solid #778899;
+            margin-bottom : 1px solid #778899;
+            background : #87cefa;
+        }
+
+        table tr {
+            text-align : center;
+            padding-left : 20px;
+        }
+
+        table td {
+            padding : 8px 8px;
+            border-top : 1px solid #778899;
+            border-left : 1px solid #778899;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h2 class="text-center">Aplikasi Pengaduan Masyarakat</h2>
+        <h5 class="text-center">Laporan tanggapan</h5>
+        <hr>
+    </div>
+
+    <?php if(empty($tanggapan)): ?>
+    <h5>Tidak Ada Data</h5>
+    <?php else: ?>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+               
+                <th>nama admin</th>
+                <th>Tanggal tanggapan</th>
+                <th>isi tanggapan</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+               foreach($tanggapan as $p){ ?>
+            <tr>
+                <td><?= $p->nama; ?></td>
+                <td><?= $p->tgl_tanggapan; ?></td>
+                <td><?= $p->tanggapan; ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
+</body>
+</html>
